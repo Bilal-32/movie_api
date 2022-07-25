@@ -1,27 +1,40 @@
 {
-  "name": "movie_api",
+  "name": "movie-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bilal-32/movie_api.git"
+    "url": "git+https://github.com/wichofly/movie-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bilal-32/movie_api/issues"
+    "url": "https://github.com/wichofly/movie-api/issues"
   },
-  "homepage": "https://github.com/Bilal-32/movie_api#readme",
+  "homepage": "https://github.com/wichofly/movie-api#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
-    "morgan": "^1.10.0"
+    "method-override": "^3.0.0",
+    "mongoose": "^6.4.4",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0"
   }
 }
