@@ -1,23 +1,16 @@
 {
-  "name": "movie-api",
+  "name": "movie_api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wichofly/movie-api.git"
+    "dev": "nodemon index.js "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wichofly/movie-api/issues"
-  },
-  "homepage": "https://github.com/wichofly/movie-api#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
@@ -35,6 +28,6 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "eslint": "^8.19.0"
+    "nodemon": "^2.0.18"
   }
 }
