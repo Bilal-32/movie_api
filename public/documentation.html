@@ -1,244 +1,239 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Documentation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>MyFlix</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>My Flix</h1>
-        <h3>Objective</h3>
-        <p>
-            To build the server-side component of a “movies” web application.
-        </p>
-        <h3>Intro</h3>
-        <p> The web application will provide users with access to information about different
-            movies, directors, and genres. Users will be able to sign up, update their
-            personal information, and create a list of their favorite movies.
-        </p>
-    </div>
-
-    <div class="container">
-        <table class="table table-bordered ">
-            <thead class="table-primary text-center">
-                <tr>
-                    <th scope="col">Description</th>
-                    <th scope="col">URL</th>
-                    <th scope="col">HTTP Method</th>
-                    <th scope="col">Requests body data format</th>
-                    <th scope="col">Requests body data format</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Allow new users to register</td>
-                    <td>/users</td>
-                    <td>POST</td>
-                    <td>A JSON object holding data about the user to add, structured like: <br>
-                        <code class="text-primary">
+        <h1> Documentation</h1>
+        <div class="restapi_table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="restapitable_item">Sl.no</th>
+                        <th class="restapitable_item"> Request </th>
+                        <th class="restapitable_item"> The endpoint URL </th>
+                        <th class="restapitable_item"> Description </th>
+                        <th class="restapitable_item"> Method </th>
+                        <th class="restapitable_item"> Format of request body data </th>
+                        <th class="restapitable_item"> Format of response body data </th>
+                        <th class="restapitable_item"> Authentication </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="restapitable_item"> 1</td>
+                        <td class="restapitable_item"> User login </td>
+                        <td class="restapitable_item"> '/login' </td>
+                        <td class="restapitable_item"> USER login and will receive a JWT </td>
+                        <td class="restapitable_item"> POST </td>
+                        <td class="restapitable_item"> {
+                            "Username": "Thomas",
+                            "Password":"qwerty"
+                        } 
+                        </td>
+                        <td class="restapitable_item"> 
+                           <p> {
+                                "user": {
+                                    "_id": "62d47946ab690131c43c3490",
+                                    "Username": "Thomas",
+                                    "Email": "thomas@gmail.com",
+                                    "Password": "qwerty",
+                                    "Birthday": "2002-05-06T22:00:00.000Z",
+                                    "FavoriteMovies": [],
+                                    "__v": 0
+                                },
+                                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmQ0N2YwZTRiYjg2ZGNjZTI2MDI4NjgiLCJVc2VybmFtZSI6IlRob21hcyIsIkVtYWlsIjoidGhvbWFzQGdtYWlsLmNvbSIsIlBhc3N3b3JkIjoicXdlcnR5IiwiQmlydGhkYXkiOiIyMDAyLTA1LTA2VDIyOjAwOjAwLjAwMFoiLCJGYXZvcml0ZU1vdmllcyI6W10sIl9fdiI6MCwiaWF0IjoxNjU4MzQ1MjkwLCJleHAiOjE2NTg5NTAwOTAsInN1YiI6IlRob21hcyJ9.niN9T3PmDmMu8UmBY7zbhskHg3fjXEVQRdI66PwbtzI"
+                            } </p>
+                        </td>
+                        <td class="restapitable_item"> Basic HTTP Authentication </td> -->
+                    </tr>
+                    
+                    <tr>
+                        <td class="restapitable_item"> 2</td>
+                        <td class="restapitable_item"> All movies to user </td>
+                        <td class="restapitable_item"> /movies </td>
+                        <td class="restapitable_item"> Return all the movies with their details(description, genre and
+                            director) </td>
+                        <td class="restapitable_item"> GET </td>
+                        <td class="restapitable_item"> none </td>
+                        <td class="restapitable_item"> An array of movie objects, check "get a single movie object" response to learn how these object look like
+                        </td>
+                        <td class="restapitable_item"> JWT (Bearer) </td>
+                    </tr>
+                    <tr>
+                        <td class="restapitable_item"> 3 </td>
+                        <td class="restapitable_item"> Return data about a single movie by title to the user </td>
+                        <td class="restapitable_item"> '/movies/:Moviename' </td>
+                        <td class="restapitable_item"> It will return all the details about the requested Movie </td>
+                        <td class="restapitable_item"> GET </td>
+                        <td class="restapitable_item"> none </td>
+                        <td class="restapitable_item"> JSON :
                             {
-                                "username": "marioduro",<br>
-                                "password": "mario9988",<br>
-                                "email": "marioduro@gmail.com",<br>
-                                "birthday":"1992-12-18"
+                                "Genre": {
+                                    "Name": "Action",
+                                    "Definition": "Movies in the action genre are fast-paced and include a lot of action like fight scenes, chase scenes, and slow-motion shots. They can feature superheroes, martial arts, or exciting stunts. These high-octane films are more about the execution of the plot rather than the plot itself."
+                                },
+                                "Director": {
+                                    "Name": "Patrick Hughes",
+                                    "Bio": "Patrick Hughes, born in Australia in 1978, has held various positions in the film business since 2000. Among other things as an editor, screenwriter or producer, initially for short films such as The Director or The Lighter , since 2010 also for the big screen.",
+                                    "Birth_year": 1978
+                                },
+                                "_id": "62cb30cce66572698ebc71d9",
+                                "Name": "The Man from Toronto",
+                                "Description": "A case of mistaken identity forced a bumbling entrepreneur to team up with a notorious assassin known as The man from Toronto in hopes of staying alive."
                             }
-                        </code>
-                    </td>
-                    <td>A JSON object holding data about the user that was added, including an ID: <br>
-                        <code class="text-primary">
+                        </td>
+                        <td class="restapitable_item"> JWT (Bearer) </td>
+
+                    </tr>
+                    <tr>
+                        <td class="restapitable_item"> 4 </td>
+                        <td class="restapitable_item"> Return data about a genre by title </td>
+                        <td class="restapitable_item"> '/movies/genre/:Genre' </td>
+                        <td class="restapitable_item"> It will return the description about the requested genre </td>
+                        <td class="restapitable_item"> GET </td>
+                        <td class="restapitable_item"> none</td>
+                        <td class="restapitable_item"> 
                             {
-                                "username": "marioduro",<br>
-                                "password": "mario9988",<br>
-                                "email": "marioduro@gmail.com",<br>
-                                "birthday": "1992-12-18T00:00:00.000Z",<br>
-                                "favoriteMovies": [],<br>
-                                "_id": "62d16bcdde824e51f7c80900",<br>
+                                "Name": "Action",
+                                "Definition": "Movies in the action genre are fast-paced and include a lot of action like fight scenes, chase scenes, and slow-motion shots. They can feature superheroes, martial arts, or exciting stunts. These high-octane films are more about the execution of the plot rather than the plot itself."
+                            }
+                         </td>
+                        <td class="restapitable_item"> JWT (Bearer) </td>
+
+                    </tr>
+                    <tr>
+                        <td class="restapitable_item"> 5 </td>
+                        <td class="restapitable_item"> Return data about a director </td>
+                        <td class="restapitable_item"> '/movies/director/:Director' </td>
+                        <td class="restapitable_item"> It will return all the details about the requested director </td>
+                        <td class="restapitable_item"> GET </td>
+                        <td class="restapitable_item"> none</td>
+                        <td class="restapitable_item"> 
+                            {
+                                "Name": "Patrick Hughes",
+                                "Bio": "Patrick Hughes, born in Australia in 1978, has held various positions in the film business since 2000. Among other things as an editor, screenwriter or producer, initially for short films such as The Director or The Lighter , since 2010 also for the big screen.",
+                                "Birth_year": 1978
+                            }
+                         </td>
+                        <td class="restapitable_item"> JWT (Bearer) </td>
+
+                    </tr>
+                    <tr>
+                        <td class="restapitable_item"> 6 </td>
+                        <td class="restapitable_item"> Allow new users to register </td>
+                        <td class="restapitable_item"> '/users' </td>
+                        <td class="restapitable_item"> Update the details of a new user </td>
+                        <td class="restapitable_item"> POST </td>
+                        <td class="restapitable_item"> JSON :
+                            {
+                                "Username": "Thomas",
+                                "Email": "thomas@gmail.com",
+                                "Password": "qwerty",
+                                "Birthday": "05/07/2002"
+                            }
+                        </td>
+                        <td class="restapitable_item"> JSON :
+                            {
+                                "Username": "Thomas",
+                                "Email": "thomas@gmail.com",
+                                "Password": "qwerty",
+                                "Birthday": "2002-05-06T22:00:00.000Z",
+                                "FavoriteMovies": [],
+                                "_id": "62d47946ab690131c43c3490",
                                 "__v": 0
                             }
-                        </code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Allow users to add a movie to their list of favorites (showing only a text that a movie has been
-                        added)</td>
-                    <td>/users/:username/movies/:movieId</td>
-                    <td>POST</td>
-                    <td>None</td>
-                    <td>A JSON object holding data on the user to whom the favorite movie was added <br>
-                        <code class="text-primary">
-                        {
-                            "_id": "62cf1de80d81998b05c5217c", <br>
-                            "username": "elver_75",<br>
-                            "password": "iamthebest7788",<br>
-                            "email": "elver_75@gmail.com",<br>
-                            "birthday": "1975-07-20T00:00:00.000Z",<br>
-                            "favoriteMovies": [
-                            "62ceface9f2c81f25a696f6b"
-                            ] <br>
-                        }
-                         </code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Return a list of ALL movies to the user</td>
-                    <td>/movies</td>
-                    <td>GET</td>
-                    <td>None</td>
-                    <td>A JSON object holding data about all the movies</td>
-                </tr>
-                <tr>
-                    <td>Return data about a single movie by title to the user</td>
-                    <td>/movies/:title</td>
-                    <td>GET</td>
-                    <td>None</td>
-                    <td>A JSON object holding data about a single movie <br>
-                        <code class="text-primary">
-                            { <br>
-                                "genre": { <br>
-                                    "name": "Animated", <br>
-                                    "description": "Animation is a method in which pictures are manipulated to appear as moving images. In traditional animation, images are drawn or painted by hand on transparent celluloid sheets to be photographed and exhibited on film." <br>
-                                }, <br>
-                                "director": { <br>
-                                    "name": "Lee Unkrich", <br>
-                                    "bio": "Update Lee Edward Unkrich is an American/Canadien retired film director, film editor, screenwriter, and animator. He was a longtime member of the creative team at Pixar, where he started in 1994 as a film editor. He later began directing, first as co-director of Toy Story 2. Cleveland, Ohio, U.S.", <br>
-                                    "birthyear": "1967-08-07T23:00:00.000Z", <br>
-                                    "deathyear": null <br>
-                                }, <br>
-                                "actors": [], <br>
-                                "_id": "62cef85f9f2c81f25a696f69", <br>
-                                "title": "Coco", <br>
-                                "description": "The story follows a 12-year-old boy named Miguel who is accidentally transported to the Land of the Dead, where he seeks the help of his deceased musician great-great-grandfather to return him to his family among the living and to reverse his familys ban on music.", <br>
-                                "imageURL": "coco.png", <br>
-                                "featured": true <br>
-                            }
-                        </code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Return data about a single movie by genre to the user</td>
-                    <td>/movies/genre/:name</td>
-                    <td>GET</td>
-                    <td>None</td>
-                    <td>A JSON object holding data about a single movie <br>
-                        <code class="text-primary">
+                        </td>
+                        <td class="restapitable_item"> none </td>
+                    </tr>
+                    <tr>
+                        <td class="restapitable_item"> 7 </td>
+                        <td class="restapitable_item"> Allow users to update their user info</td>
+                        <td class="restapitable_item"> '/users/:Username' </td>
+                        <td class="restapitable_item"> It will update the user data of the user of the requested user
+                        </td>
+                        <td class="restapitable_item"> PUT </td>
+                        <td class="restapitable_item"> JSON :
                             {
-                                "name": "Drama", <br>
-                                "description": "In film and television, drama is a category or genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone."
+                                "Email":"thomas123@gmail.com"
                             }
-                        </code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Return data about a single movie by director to the user</td>
-                    <td>/movies/director/:name</td>
-                    <td>GET</td>
-                    <td>None</td>
-                    <td>A JSON object holding data about a single movie <br>
-                        <code class="text-primary">
+                        </td>
+                        <td class="restapitable_item"> 
                             {
-                                "name": "Jonathan Demme", <br>
-                                "bio": "Demme was the son of Dorothy Louise (née Rogers) and Robert Eugene Demme, a public relations executive. He was raised in Rockville Centre, New York and Miami, where he graduated from Southwest Miami High School before attending the University of Florida.", <br>
-                                "birthyear": "1944-02-21T23:00:00.000Z", <br>
-                                "deathyear": "2017-04-25T22:00:00.000Z" 
+                                "_id": "62d475efeae200c59959c014",
+                                "Username": "Thomas",
+                                "Email": "thomas123@gmail.com",
+                                "Password": "qwerty",
+                                "Birthday": "2002-05-06T22:00:00.000Z",
+                                "FavoriteMovies": [],
+                                "__v": 0
                             }
-                        </code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Return a list of All users</td>
-                    <td>/users</td>
-                    <td>GET</td>
-                    <td>None</td>
-                    <td>A JSON object holding data about all the users</td>
-                </tr>
-                <tr>
-                    <td>Return an user by username</td>
-                    <td>/users/:username</td>
-                    <td>GET</td>
-                    <td>None</td>
-                    <td>A JSON object holding data about an user by username <br>
-                        <code class="text-primary">
+                        </td>
+                        <td class="restapitable_item"> JWT (Bearer) </td>
+                    </tr>
+                    <tr>
+                        <td class="restapitable_item"> 8 </td>
+                        <td class="restapitable_item"> To add a movie to their list of favorites </td>
+                        <td class="restapitable_item"> '/users/:Username/movies/:MovieID'</td>
+                        <td class="restapitable_item"> Allow users to add their favorite movie to the list </td>
+                        <td class="restapitable_item"> POST </td>
+                        <td class="restapitable_item"> none </td>
+                        <td class="restapitable_item"> 
                             {
-                                "_id": "62cf1e5d0d81998b05c5217d", <br>
-                                "username": "davidpower", <br>
-                                "password": "sanjuandeargentina0987", <br>
-                                "email": "david_elgrande@gmail.com", <br>
-                                "birthday": "1996-06-02T00:00:00.000Z", <br>
-                                "favoriteMovies": []
+                                "_id": "62d475efeae200c59959c014",
+                                "Username": "Thomas",
+                                "Email": "thomas123@gmail.com",
+                                "Password": "qwerty",
+                                "Birthday": "2002-05-06T22:00:00.000Z",
+                                "FavoriteMovies": [
+                                    "62cb3197e66572698ebc71dd"
+                                ],
+                                "__v": 0
                             }
-                        </code>
+                        </td>
+                        <td class="restapitable_item"> JWT (Bearer) </td>
+                    </tr>
+                    <tr>
+                        <td class="restapitable_item"> 9 </td>
+                        <td class="restapitable_item"> To delete a movie to their list of favorites </td>
+                        <td class="restapitable_item"> '/users/:Username/movies/:MovieID' </td>
+                        <td class="restapitable_item"> Allow users to delete their favorite movie from the list </td>
+                        <td class="restapitable_item"> DELETE </td>
+                        <td class="restapitable_item"> none </td>
+                        <td class="restapitable_item"> 
+                            {
+                                "_id": "62d475efeae200c59959c014",
+                                "Username": "Thomas",
+                                "Email": "thomas123@gmail.com",
+                                "Password": "qwerty",
+                                "Birthday": "2002-05-06T22:00:00.000Z",
+                                "FavoriteMovies": [],
+                                "__v": 0
+                            }
+                         </td>
+                         <td class="restapitable_item"> JWT (Bearer) </td>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>Allow users to update their user info (username)</td>
-                    <td>/users/:username</td>
-                    <td>PUT</td>
-                    <td>A JSON object holding data about the user to update, structured like: <br>
-                        <code class="text-primary">
-                            {
-                                "username": "juliamaria123", <br>
-                                "password": "juliaamarillo0022UPDATE", <br>
-                                "email": "juliamaria@gmail.com", <br>
-                                "birthday": "1988-04-18"
-                            }
-                        </code>
-                    </td>
-                    <td>A JSON object holding data about teh user update <br>
-                        <code class="text-primary">
-                            {
-                                "_id": "62cee73300c3c35365cb6ccc", <br>
-                                "username": "juliamaria123", <br>
-                                "password": "juliaamarillo0022UPDATE", <br>
-                                "email": "juliamaria@gmail.com", <br>
-                                "birthday": "1988-04-18T00:00:00.000Z", <br>
-                                "favoriteMovies": []
-                            }
-                        </code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Allow users to remove a movie from their list of favorites (showing only a text that a movie has
-                        been removed)</td>
-                    <td>/users/:uername/movies/movieId</td>
-                    <td>DELETE</td>
-                    <td>None</td>
-                    <td>A JSON object holding data about the user<br>
-                        <code class="text-primary">
-                            {
-                                "_id": "62cee73300c3c35365cb6ccc",
-                                "username": "juliamaria123",
-                                "password": "juliaamarillo0022UPDATE",
-                                "email": "juliamaria@gmail.com",
-                                "birthday": "1988-04-18T00:00:00.000Z",
-                                "favoriteMovies": [
-                                    "62cefc659f2c81f25a696f70"
-                                ]
-                            }
-                        </code>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Allow existing users to deregister (showing only a text that a user email has been removed)</td>
-                    <td>/users/:username</td>
-                    <td>DELETE</td>
-                    <td>None</td>
-                    <td>A text message indicates weather the existing user has been successfully delete</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                    </tr>
+                    <tr>
+                        <td class="restapitable_item"> 10 </td>
+                        <td class="restapitable_item"> Existing users to deregister </td>
+                        <td class="restapitable_item"> '/users/:Username' </td>
+                        <td class="restapitable_item"> Allowing a user to deregister </td>
+                        <td class="restapitable_item"> DELETE </td>
+                        <td class="restapitable_item"> none </td>
+                        <td class="restapitable_item"> response text confirming the user is deregister  : "Thomas was deleted".</td>
+                        <td class="restapitable_item"> JWT (Bearer) </td>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <script src="../js/test.js"></script>
 </body>
 
 </html>
