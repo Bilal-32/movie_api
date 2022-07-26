@@ -1,8 +1,101 @@
-::1 - - [06/Jul/2022:13:49:20 +0000] "GET /secreturl HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
-::1 - - [06/Jul/2022:13:50:08 +0000] "GET / HTTP/1.1" 200 18 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
-::1 - - [06/Jul/2022:13:50:16 +0000] "GET /fuego HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
-::1 - - [06/Jul/2022:15:23:02 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
-::1 - - [06/Jul/2022:15:23:09 +0000] "GET /movies HTTP/1.1" 200 506 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
-::1 - - [06/Jul/2022:15:23:20 +0000] "GET /documentation HTTP/1.1" 200 784 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
-::1 - - [06/Jul/2022:15:23:53 +0000] "GET /secreturl HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
-::1 - - [06/Jul/2022:15:24:00 +0000] "GET /fuego HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+URL: /documentation
+Timestamp: Sun Jun 19 2022 18:36:31 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Sun Jun 19 2022 18:36:31 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Sun Jun 19 2022 18:36:31 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Sun Jun 19 2022 18:36:33 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Sun Jun 19 2022 18:36:33 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Sun Jun 19 2022 18:36:33 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Sun Jun 19 2022 18:36:45 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Sun Jun 19 2022 18:36:45 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Sun Jun 19 2022 18:36:45 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Sun Jun 19 2022 18:36:46 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Sun Jun 19 2022 18:36:46 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Sun Jun 19 2022 18:36:46 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Sun Jun 19 2022 18:36:51 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Sun Jun 19 2022 18:36:51 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Sun Jun 19 2022 18:36:51 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Sun Jun 19 2022 18:36:51 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Sun Jun 19 2022 18:36:53 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Sun Jun 19 2022 18:36:53 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Sun Jun 19 2022 18:36:53 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Sun Jun 19 2022 18:36:53 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Sun Jun 19 2022 18:37:34 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Sun Jun 19 2022 18:37:34 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Sun Jun 19 2022 18:37:34 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Sun Jun 19 2022 18:37:34 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Jun 24 2022 13:00:16 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Fri Jun 24 2022 13:00:16 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Jun 24 2022 13:00:16 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Jun 24 2022 13:00:58 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Fri Jun 24 2022 13:00:58 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Jun 24 2022 13:00:58 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Fri Jun 24 2022 13:02:25 GMT+0200 (Central European Summer Time)
+
+URL: /js/test.js
+Timestamp: Fri Jun 24 2022 13:02:25 GMT+0200 (Central European Summer Time)
+
+URL: /
+Timestamp: Fri Jun 24 2022 13:02:25 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Jun 24 2022 13:02:25 GMT+0200 (Central European Summer Time)
