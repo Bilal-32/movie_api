@@ -6,7 +6,6 @@ const Models = require('./model.js');
 const Movies = Models.Movie; // Refers to the model names created in "model.js"
 const Users = Models.User;
 
-// mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true }) // Allows mongoose to connect to myFlixDB database
 
 mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true }); // Now, your connection URI will never be exposed in your “index.js” file. This is much more secure!
 /*---------------------------------------------------------------------------------*/
@@ -61,27 +60,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/documentation', (req, res) => {
-    /* try {
-        throw new Error({ stack: 'ere' });
-    } catch (error) {
-        next(error)
-    }*/
+    
     res.sendFile('public/documentation.html', { root: __dirname });
 });
 
 // CREATE
-/* 
-app.post('/users', (req, res) => {
-    const newUser = req.body // is posible just for this code: "app.use(bodyParser.json())". is what enables us to read data from the body object
-    if (newUser.name) {
-        newUser.id = uuid.v4();
-        users.push(newUser);
-        res.status(201).json(newUser);
-    } else {
-        res.status(400).send('users need names')
-    }
-})
-*/
 // Now using Mongoose
 app.post('/users', [
     check('username', 'Username is required').isLength({ min: 5 }),
@@ -122,20 +105,6 @@ app.post('/users', [
         });
 });
 
-// CREATE
-/* 
-app.post('/users/:id/:movieTitle', (req, res) => {
-    const { id, movieTitle } = req.params;
-    let user = users.find(user => user.id == id);
-    if (user) {
-        user.favoriteMovies.push(movieTitle);
-        res.status(200).send(`${movieTitle} has been added to user ${id}'s array`);
-    } else {
-        res.status(400).send('no such user')
-    }
-})
-*/
-
 // CREATE. Add a movie to users list of favorite, using Mongoose
 app.post('/users/:username/movies/:movieId', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOneAndUpdate({ username: req.params.username }, {
@@ -152,14 +121,6 @@ app.post('/users/:username/movies/:movieId', passport.authenticate('jwt', { sess
         });
 });
 
-// READ
-/* 
-app.get('/movies', (req, res) => {
-    res.status(200).json(movies);
-    //res.json(movies)
-});
-*/
-
 // READ get all movies using Mongoose
 app.get('/movies', function (req, res) { //passport.authenticate('jwt', { session: false }), (req, res) => {
     Movies.find()
@@ -175,17 +136,6 @@ app.get('/movies', function (req, res) { //passport.authenticate('jwt', { sessio
 });
 
 // READ
-/* 
-app.get('/movies/:title', (req, res) => {
-    const { title } = req.params;
-    const movie = movies.find(movie => movie.title === title);
-    if (movie) {
-        res.status(200).json(movie);
-    } else {
-        res.status(400).send('no such movie')
-    }
-})
-*/
 
 // READ Getting movie by title using Mongoose
 app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -199,18 +149,7 @@ app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req
         });
 });
 
-// READ
-/* 
-app.get('/movies/genre/:genreName', (req, res) => {
-    const { genreName } = req.params;
-    const genre = movies.find(movie => movie.genre.name === genreName).genre;
-    if (genre) {
-        res.status(200).json(genre);
-    } else {
-        res.status(400).send('no such genre')
-    }
-})
-*/
+
 
 // READ Getting movie by genre in Mongoose
 app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -224,18 +163,6 @@ app.get('/movies/genre/:name', passport.authenticate('jwt', { session: false }),
         });
 })
 
-// READ
-/*
-app.get('/movies/directors/:directorName', (req, res) => {
-    const { directorName } = req.params;
-    const director = movies.find(movie => movie.director.name === directorName).director;
-    if (director) {
-        res.status(200).json(director);
-    } else {
-        res.status(400).send('no such director')
-    }
-})
-*/
 
 // READ Getting Director in Mongoose
 app.get('/movies/director/:name', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -273,20 +200,6 @@ app.get('/users/:username', passport.authenticate('jwt', { session: false }), (r
         });
 });
 
-// UPDATE
-/* 
-app.put('/users/:id', (req, res) => {
-    const { id } = req.params;
-    const updateUser = req.body; // is posible just for this code: "app.use(bodyParser.json())". is what enables us to read data from the body object
-    let user = users.find(user => user.id == id);
-    if (user) {
-        user.name = updateUser.name;
-        res.status(200).json(user);
-    } else {
-        res.status(400).send('no such user')
-    }
-})
-*/
 
 // UPDATE a user's info, by username in Mongoose
 app.put('/users/:username', [
@@ -323,19 +236,6 @@ app.put('/users/:username', [
         });
 });
 
-// DELETE
-/* 
-app.delete('/users/:id/:movieTitle', (req, res) => {
-    const { id, movieTitle } = req.params;
-    let user = users.find(user => user.id == id);
-    if (user) {
-        user.favoriteMovies = user.favoriteMovies.filter(title => title !== movieTitle)
-        res.status(200).send(`${movieTitle} has been deleted from user ${id}'s array`);
-    } else {
-        res.status(400).send('no such user')
-    }
-})
-*/
 
 // DELETE favorite movie in user's list by movieId
 app.delete('/users/:username/movies/:movieId', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -353,19 +253,6 @@ app.delete('/users/:username/movies/:movieId', passport.authenticate('jwt', { se
         });
 });
 
-// DELETE
-/* 
-app.delete('/users/:id', (req, res) => {
-    const { id } = req.params;
-    let user = users.find(user => user.id == id);
-    if (user) {
-        users = users.filter(user => user.id != id)
-        res.status(200).send(`user ${id} has been deleted`);
-    } else {
-        res.status(400).send('no such user')
-    }
-})
-*/
 
 // DELETE in Mongoose
 app.delete('/users/:username', passport.authenticate('jwt', { session: false }), (req, res) => {
